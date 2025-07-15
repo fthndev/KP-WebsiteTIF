@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arsip Dokumen | Teknik Informatika UTM</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Warna kustom */
+    :root {
+      --main-blue: #003366;
+      --accent-blue: #0059b3;
+      --light-gray: #f5f7fa;
+      --light-blue: #e6f0ff;
+    }
+    /* Transisi smooth untuk akordeon */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+    }
+    /* Mengatur agar font di dalam link dokumen tidak terlalu kecil */
+    .document-link {
+      font-size: 0.9rem;
+    }
+    body {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-[var(--light-gray)] text-gray-800 font-sans">
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center gap-3">
+          <img src="img\WhatsApp Image 2025-07-15 at 17.51.07_937409d1.jpg" alt="Logo TI UTM" class="h-10 w-10 object-contain" />
+          <span class="font-bold text-[var(--main-blue)] text-lg">Teknik Informatika UTM</span>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+          <a href="#" class="text-gray-600 hover:text-[var(--accent-blue)] transition-colors">Home</a>
+          <a href="#" class="text-gray-600 hover:text-[var(--accent-blue)] transition-colors">Tentang</a>
+          <a href="#" class="text-gray-600 hover:text-[var(--accent-blue)] transition-colors">Akademik</a>
+          <a href="#" class="text-[var(--main-blue)] font-bold border-b-2 border-[var(--accent-blue)] pb-1">Dokumen</a>
+          <a href="#" class="text-gray-600 hover:text-[var(--accent-blue)] transition-colors">Alumni</a>
+        </nav>
+
+        <div class="md:hidden">
+          <button id="mobile-menu-toggle" class="text-gray-700 text-2xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white p-4 space-y-2 border-t border-gray-200">
+      <a href="#" class="block px-4 py-2 rounded hover:bg-[var(--light-gray)] hover:text-[var(--accent-blue)]">Home</a>
+      <a href="#" class="block px-4 py-2 rounded hover:bg-[var(--light-gray)] hover:text-[var(--accent-blue)]">Tentang</a>
+      <a href="#" class="block px-4 py-2 rounded hover:bg-[var(--light-gray)] hover:text-[var(--accent-blue)]">Akademik</a>
+      <a href="#" class="block px-4 py-2 rounded bg-[var(--light-gray)] text-[var(--main-blue)] font-bold">Dokumen</a>
+      <a href="#" class="block px-4 py-2 rounded hover:bg-[var(--light-gray)] hover:text-[var(--accent-blue)]">Alumni</a>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+
+      <div class="w-full space-y-4">
+      
+        <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+          <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
+            <span class="text-lg">DOKUMEN PENETAPAN</span>
+            <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-4">
+              <div>
+                  <h4 class="font-semibold text-gray-800 mb-2">C1. Visi, Misi, Tujuan, dan Strategi</h4>
+                  <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2">
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 SPMI 8.7. Standar Perencanaan dan Pengembangan</a>
+                  </div>
+              </div>
+              <div>
+                  <h4 class="font-semibold text-gray-800 mb-2">C2. Tata Pamong, Tata Kelola, & Kerjasama</h4>
+                  <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2">
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Standar SPMI Tata Kelola</a>
+                  </div>
+              </div>
+              </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+          <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
+            <span class="text-lg">DOKUMEN PELAKSANAAN</span>
+            <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+          </button>
+          <div class="accordion-content">
+             <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-4">
+                <div>
+                  <h4 class="font-semibold text-gray-800 mb-2">C1. Keterlaksanaan VMTS</h4>
+                  <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2">
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Renstra UTM & Fakultas</a>
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Booting Memory Maba & Open Talk</a>
+                  </div>
+                </div>
+             </div>
+          </div>
+        </div>
+
+        <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+          <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
+            <span class="text-lg">DOKUMEN EVALUASI</span>
+            <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+          </button>
+          <div class="accordion-content">
+             <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-4">
+              <div>
+                  <h4 class="font-semibold text-gray-800 mb-2">C1. Evaluasi VMTS</h4>
+                  <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2">
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Dokumen Analisa SWOT</a>
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Laporan Audit Mutu Internal & RTM</a>
+                  </div>
+              </div>
+             </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+          <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
+            <span class="text-lg">DOKUMEN PENGENDALIAN</span>
+            <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+          </button>
+          <div class="accordion-content">
+             <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-4">
+                  <div>
+                      <h4 class="font-semibold text-gray-800 mb-2">C1-C9. Pengendalian</h4>
+                      <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2">
+                          <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Dokumen Rapat Tinjauan Manajemen (RTM)</a>
+                           <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Tindak Lanjut Hasil Seleksi Mahasiswa</a>
+                      </div>
+                  </div>
+             </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+          <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
+            <span class="text-lg">DOKUMEN PENINGKATAN</span>
+            <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+          </button>
+          <div class="accordion-content">
+             <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-4">
+                 <div>
+                      <h4 class="font-semibold text-gray-800 mb-2">C1-C9. Peningkatan Berkelanjutan</h4>
+                      <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2">
+                          <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Laporan Hasil Evaluasi & RTM</a>
+                          <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Rencana Operasional (Renop) Tahun 2024/2025</a>
+                      </div>
+                  </div>
+             </div>
+          </div>
+        </div>
+      
+      </div>
+  </main>
+
+  <script>
+    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    mobileMenuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    const accordionItems = document.querySelectorAll(".accordion-item");
+    accordionItems.forEach((item) => {
+      const button = item.querySelector(".accordion-button");
+      const content = item.querySelector(".accordion-content");
+      const icon = item.querySelector(".accordion-icon");
+
+      button.addEventListener("click", () => {
+        const isOpened = content.style.maxHeight !== "0px";
+
+        // Optional: Close all others first
+        accordionItems.forEach(otherItem => {
+          if (otherItem !== item) {
+             otherItem.querySelector(".accordion-content").style.maxHeight = "0px";
+             otherItem.querySelector(".accordion-icon").style.transform = "rotate(0deg)";
+             otherItem.querySelector(".accordion-button").classList.remove("bg-[var(--light-blue)]");
+          }
+        });
+
+        // Toggle the clicked one
+        if (!isOpened) {
+          content.style.maxHeight = content.scrollHeight + "px";
+          icon.style.transform = "rotate(180deg)";
+          button.classList.add("bg-[var(--light-blue)]");
+        } else {
+          content.style.maxHeight = "0px";
+          icon.style.transform = "rotate(0deg)";
+          button.classList.remove("bg-[var(--light-blue)]");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
