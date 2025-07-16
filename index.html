@@ -7,7 +7,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <style>
-    /* Warna kustom */
     :root {
       --main-blue: #003366;
       --accent-blue: #0059b3;
@@ -15,13 +14,15 @@
       --light-blue: #e6f0ff;
       --semi-black: #24262b;
     }
-    /* Transisi smooth untuk akordeon */
-      .accordion-content, .content-button-2, .content-button-3 {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease-in-out;
-      }
-    /* Mengatur agar font di dalam link dokumen tidak terlalu kecil */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out;
+    }
+    .nested-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+    }
     .document-link {
       font-size: 0.9rem;
     }
@@ -31,14 +32,14 @@
   </style>
 </head>
 <body class="bg-[var(--light-gray)] text-gray-800 font-sans">
+
   <header class="shadow-md sticky top-0 z-50 bg-[var(--light-blue)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center gap-3">
-          <img src="./img/logo_tif.jpg" alt="Logo TI UTM" class="h-10 w-10 object-contain" />
+          <img src="img\logo_tif.jpg" alt="Logo TI UTM" class="h-10 w-10 object-contain bg-[var(--main-blue)] rounded-full" />
           <span class="font-bold text-[var(--main-blue)] text-lg">Teknik Informatika UTM</span>
         </div>
-
         <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
           <a href="#" class="text-gray-600 hover:text-[var(--accent-blue)] transition-colors">Home</a>
           <a href="#" class="text-gray-600 hover:text-[var(--accent-blue)] transition-colors">Tentang</a>
@@ -46,7 +47,6 @@
           <a href="#" class="text-[var(--main-blue)] font-bold border-b-2 border-[var(--accent-blue)] pb-1">Dokumen</a>
           <a href="#" class="text-gray-600 hover:text-[var(--accent-blue)] transition-colors">Alumni</a>
         </nav>
-
         <div class="md:hidden">
           <button id="mobile-menu-toggle" class="text-gray-700 text-2xl">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,7 +56,6 @@
         </div>
       </div>
     </div>
-
     <div id="mobile-menu" class="hidden md:hidden bg-white p-4 space-y-2 border-t border-gray-200">
       <a href="#" class="block px-4 py-2 rounded hover:bg-[var(--light-gray)] hover:text-[var(--accent-blue)]">Home</a>
       <a href="#" class="block px-4 py-2 rounded hover:bg-[var(--light-gray)] hover:text-[var(--accent-blue)]">Tentang</a>
@@ -66,150 +65,281 @@
     </div>
   </header>
 
-  <!-- img page -->
-  <div class="img-page">
-  </div>
-
-  <main class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 border-2 border-dashed border-blue-200 p-4 rounded-xl my-20">
-
-      <div class="w-full space-y-4">
-      
-        <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
-          <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
-            <span class="text-lg">DOKUMEN PENETAPAN</span>
-            <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
-          </button>
-          <div class="accordion-content">
-            <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-2">
-              <div>
-                  <button class="button-1 flex justify-between">
-                    <svg class="icon-content-1 w-4 h-4 text-blue-700 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                    <h4 class="font-semibold text-gray-800 mb-2">C1</h4>
+  <main class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 border-2 border-dashed border-blue-200 rounded-xl my-20">
+    <div class="w-full space-y-4">
+      <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+        <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
+          <span class="text-lg">DOKUMEN PENETAPAN</span>
+          <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </button>
+        <div class="accordion-content">
+          <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-2">
+            
+            <div>
+              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <h4 class="font-semibold text-gray-800">C1</h4>
+              </button>
+              <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                <div class="pt-2 space-y-2">
+                  <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                    <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <h5 class="font-semibold text-gray-800">A1</h5>
                   </button>
-                  <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2 content-button-2">
-                      <div>
-                         <button class="button-2 flex justify-between">
-                            <svg class="icon-content-1 w-4 h-4 text-blue-700 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                            <h5 class="font-semibold text-gray-800 mb-2">A1</h5>
-                        </button>
-                        <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2 content-button-3">
-                          <div>
-                              <h5 class="font-semibold text-gray-600 mb-2">Kebijakan</h5>
-                              <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                         <button class="button-2 flex justify-between">
-                            <svg class="icon-content-1 w-4 h-4 text-blue-700 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                            <h5 class="font-semibold text-gray-800 mb-2">A2</h5>
-                        </button>
-                          <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2 content-button-3">
-                            <div>
-                                <h5 class="font-semibold text-gray-600 mb-2">Kebijakan</h5>
-                                <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div>
-                  <button class="button-1 flex justify-between">
-                    <svg class="icon-content-1 w-4 h-4 text-blue-700 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                    <h4 class="font-semibold text-gray-800 mb-2">C2</h4>
-                  </button>
-                  <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2 content-button-2">
-                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Standar SPMI Tata Kelola</a>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
-          <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
-            <span class="text-lg">DOKUMEN PELAKSANAAN</span>
-            <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
-          </button>
-          <div class="accordion-content">
-             <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-4">
-                <div>
-                  <h4 class="font-semibold text-gray-800 mb-2">C1. Keterlaksanaan VMTS</h4>
-                  <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2">
-                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Renstra UTM & Fakultas</a>
-                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Booting Memory Maba & Open Talk</a>
+                  <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)] space-y-2">
+                    <div class="pt-2">
+                      <h5 class="font-semibold text-gray-600 mb-2">Kebijakan</h5>
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
+                    </div>
                   </div>
                 </div>
-             </div>
-          </div>
-        </div>
-
-        <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
-          <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
-            <span class="text-lg">DOKUMEN EVALUASI</span>
-            <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
-          </button>
-          <div class="accordion-content">
-             <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-4">
-              <div>
-                  <h4 class="font-semibold text-gray-800 mb-2">C1. Evaluasi VMTS</h4>
-                  <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2">
-                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Dokumen Analisa SWOT</a>
-                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Laporan Audit Mutu Internal & RTM</a>
+                 <div class="pt-2 space-y-2">
+                  <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                    <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <h5 class="font-semibold text-gray-800">A2</h5>
+                  </button>
+                  <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)] space-y-2">
+                    <div class="pt-2">
+                      <h5 class="font-semibold text-gray-600 mb-2">Kebijakan</h5>
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
+                    </div>
                   </div>
+                </div>
               </div>
-             </div>
+            </div>
+            
+            <div>
+              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <h4 class="font-semibold text-gray-800">C2</h4>
+              </button>
+              <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                <a href="#" class="document-link block p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Standar SPMI Tata Kelola</a>
+              </div>
+            </div>
+            
           </div>
         </div>
-        
-        <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
-          <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
-            <span class="text-lg">DOKUMEN PENGENDALIAN</span>
-            <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
-          </button>
-          <div class="accordion-content">
-             <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-4">
-                  <div>
-                      <h4 class="font-semibold text-gray-800 mb-2">C1-C9. Pengendalian</h4>
-                      <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2">
-                          <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Dokumen Rapat Tinjauan Manajemen (RTM)</a>
-                           <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Tindak Lanjut Hasil Seleksi Mahasiswa</a>
-                      </div>
-                  </div>
-             </div>
-          </div>
-        </div>
-        
-        <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
-          <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
-            <span class="text-lg">DOKUMEN PENINGKATAN</span>
-            <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
-          </button>
-          <div class="accordion-content">
-             <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-4">
-                 <div>
-                      <h4 class="font-semibold text-gray-800 mb-2">C1-C9. Peningkatan Berkelanjutan</h4>
-                      <div class="pl-3 border-l-2 border-[var(--light-blue)] space-y-2">
-                          <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Laporan Hasil Evaluasi & RTM</a>
-                          <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Rencana Operasional (Renop) Tahun 2024/2025</a>
-                      </div>
-                  </div>
-             </div>
-          </div>
-        </div>
-      
       </div>
+     <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+        <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
+          <span class="text-lg">DOKUMEN PELAKSANAAN</span>
+          <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </button>
+        <div class="accordion-content">
+          <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-2">
+            
+            <div>
+              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <h4 class="font-semibold text-gray-800">C1</h4>
+              </button>
+              <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                <div class="pt-2 space-y-2">
+                  <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                    <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <h5 class="font-semibold text-gray-800">A1</h5>
+                  </button>
+                  <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)] space-y-2">
+                    <div class="pt-2">
+                      <h5 class="font-semibold text-gray-600 mb-2">Kebijakan</h5>
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
+                    </div>
+                  </div>
+                </div>
+                 <div class="pt-2 space-y-2">
+                  <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                    <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <h5 class="font-semibold text-gray-800">A2</h5>
+                  </button>
+                  <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)] space-y-2">
+                    <div class="pt-2">
+                      <h5 class="font-semibold text-gray-600 mb-2">Kebijakan</h5>
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <h4 class="font-semibold text-gray-800">C2</h4>
+              </button>
+              <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                <a href="#" class="document-link block p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Standar SPMI Tata Kelola</a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+        <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
+          <span class="text-lg">DOKUMEN EVALUASI</span>
+          <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </button>
+        <div class="accordion-content">
+          <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-2">
+            
+            <div>
+              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <h4 class="font-semibold text-gray-800">C1</h4>
+              </button>
+              <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                <div class="pt-2 space-y-2">
+                  <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                    <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <h5 class="font-semibold text-gray-800">A1</h5>
+                  </button>
+                  <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)] space-y-2">
+                    <div class="pt-2">
+                      <h5 class="font-semibold text-gray-600 mb-2">Kebijakan</h5>
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
+                    </div>
+                  </div>
+                </div>
+                 <div class="pt-2 space-y-2">
+                  <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                    <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <h5 class="font-semibold text-gray-800">A2</h5>
+                  </button>
+                  <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)] space-y-2">
+                    <div class="pt-2">
+                      <h5 class="font-semibold text-gray-600 mb-2">Kebijakan</h5>
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <h4 class="font-semibold text-gray-800">C2</h4>
+              </button>
+              <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                <a href="#" class="document-link block p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Standar SPMI Tata Kelola</a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+        <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
+          <span class="text-lg">DOKUMEN PENGENDALIAN</span>
+          <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </button>
+        <div class="accordion-content">
+          <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-2">
+            
+            <div>
+              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <h4 class="font-semibold text-gray-800">C1</h4>
+              </button>
+              <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                <div class="pt-2 space-y-2">
+                  <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                    <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <h5 class="font-semibold text-gray-800">A1</h5>
+                  </button>
+                  <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)] space-y-2">
+                    <div class="pt-2">
+                      <h5 class="font-semibold text-gray-600 mb-2">Kebijakan</h5>
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
+                    </div>
+                  </div>
+                </div>
+                 <div class="pt-2 space-y-2">
+                  <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                    <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <h5 class="font-semibold text-gray-800">A2</h5>
+                  </button>
+                  <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)] space-y-2">
+                    <div class="pt-2">
+                      <h5 class="font-semibold text-gray-600 mb-2">Kebijakan</h5>
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <h4 class="font-semibold text-gray-800">C2</h4>
+              </button>
+              <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                <a href="#" class="document-link block p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Standar SPMI Tata Kelola</a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+        <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-bold text-[var(--main-blue)] hover:bg-[var(--light-blue)]">
+          <span class="text-lg">DOKUMEN PENINGKATAN</span>
+          <svg class="accordion-icon h-6 w-6 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </button>
+        <div class="accordion-content">
+          <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-2">
+            
+            <div>
+              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <h4 class="font-semibold text-gray-800">C1</h4>
+              </button>
+              <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                <div class="pt-2 space-y-2">
+                  <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                    <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <h5 class="font-semibold text-gray-800">A1</h5>
+                  </button>
+                  <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)] space-y-2">
+                    <div class="pt-2">
+                      <h5 class="font-semibold text-gray-600 mb-2">Kebijakan</h5>
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
+                    </div>
+                  </div>
+                </div>
+                 <div class="pt-2 space-y-2">
+                  <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                    <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <h5 class="font-semibold text-gray-800">A2</h5>
+                  </button>
+                  <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)] space-y-2">
+                    <div class="pt-2">
+                      <h5 class="font-semibold text-gray-600 mb-2">Kebijakan</h5>
+                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <h4 class="font-semibold text-gray-800">C2</h4>
+              </button>
+              <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                <a href="#" class="document-link block p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Standar SPMI Tata Kelola</a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
-
-  <footer class="bg-[var(--semi-black)] text-white mt-20">
+<footer class="bg-[var(--semi-black)] text-white mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
   
@@ -248,125 +378,66 @@
       </div>
     </div>
 </footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
 
+  function updateParentHeight(element) {
+    let parentContent = element.parentElement.closest('.accordion-content, .nested-accordion-content');
+    
+    while (parentContent) {
+      if (parentContent.style.maxHeight && parentContent.style.maxHeight !== '0px') {
+        parentContent.style.maxHeight = parentContent.scrollHeight + 'px';
+      }
+      parentContent = parentContent.parentElement.closest('.accordion-content, .nested-accordion-content');
+    }
+  }
 
-  <script>
-    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
+  document.querySelectorAll('.nested-accordion-button').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('.nested-accordion-icon');
+      const isOpened = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+      if (!isOpened) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        if (icon) icon.style.transform = 'rotate(90deg)';
+      } else {
+        content.style.maxHeight = '0px';
+        if (icon) icon.style.transform = 'rotate(0deg)';
+      }
+      
+      updateParentHeight(content);
+    });
+  });
+
+  document.querySelectorAll('.accordion-button').forEach(mainButton => {
+    mainButton.addEventListener('click', () => {
+      // BAGIAN KODE YANG MENUTUP OTOMATIS BAB LAIN TELAH DIHAPUS
+      const content = mainButton.nextElementSibling;
+      const icon = mainButton.querySelector('.accordion-icon');
+      const isOpened = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+      if (!isOpened) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        content.style.maxHeight = '0px';
+        icon.style.transform = 'rotate(0deg)';
+      }
+    });
+  });
+  
+  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  if (mobileMenuToggle && mobileMenu) {
     mobileMenuToggle.addEventListener("click", () => {
       mobileMenu.classList.toggle("hidden");
     });
+  }
+});
+</script>
 
-    // kalkulasi ulang height content
-    function recalculateParentHeight(btn) {
-      const accordionContent = btn.closest(".accordion-content");
-
-      let totalHeight = 0;
-      const paddingHeight = 40; // asumsi padding, bisa sesuaikan
-
-      accordionContent.querySelectorAll(".content-button-2, .content-button-3, .main-content").forEach((el) => {
-        if (el.style.maxHeight && el.style.maxHeight !== "0px") {
-          totalHeight += el.scrollHeight;
-        }
-      });
-
-      // tambahkan scrollHeight tetap untuk konten awal
-      accordionContent.style.maxHeight = accordionContent.scrollHeight + totalHeight + paddingHeight + "px";
-    }
-
-
-    const accordionItems = document.querySelectorAll(".accordion-item");
-    accordionItems.forEach((item) => {
-      const button = item.querySelector(".accordion-button");
-      const content = item.querySelector(".accordion-content");
-      const icon = item.querySelector(".accordion-icon");
-
-      button.addEventListener("click", () => {
-        const isOpened = content.style.maxHeight && content.style.maxHeight !== "0px";
-
-        // Optional: Close all others first
-        accordionItems.forEach(otherItem => {
-          if (otherItem !== item) {
-             otherItem.querySelector(".accordion-content").style.maxHeight = "0px";
-             otherItem.querySelector(".accordion-icon").style.transform = "rotate(0deg)";
-             otherItem.querySelector(".accordion-button").classList.remove("bg-[var(--light-blue)]");
-          }
-        });
-
-        // Toggle the clicked one
-        if (!isOpened) {
-          content.style.maxHeight = "0px"; 
-            requestAnimationFrame(() => {
-              content.style.maxHeight = content.scrollHeight + "px";
-              requestAnimationFrame(() => {
-                recalculateParentHeight(button);
-              });
-            });
-          icon.style.transform = "rotate(180deg)";
-          button.classList.add("bg-[var(--light-blue)]");
-        } else {
-          content.style.maxHeight = "0px";
-          icon.style.transform = "rotate(0deg)";
-          button.classList.remove("bg-[var(--light-blue)]");
-          requestAnimationFrame(() => {
-            recalculateParentHeight(button);
-          });
-        }
-      });
-    });
-
-    // inner button 1
-    const innerButton_1 = document.querySelectorAll(".button-1");
-    innerButton_1.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const innerContent_1 = btn.nextElementSibling;
-        const iconContent_1 = btn.querySelector("svg");
-        const btnOpen_1 = innerContent_1.style.maxHeight && innerContent_1.style.maxHeight !== "0px";
-
-        if (!btnOpen_1) {
-          innerContent_1.style.maxHeight = "0px";
-          requestAnimationFrame(() => {
-            innerContent_1.style.maxHeight = innerContent_1.scrollHeight + btn.offsetHeight + "px";
-            requestAnimationFrame(() => {
-              recalculateParentHeight(btn);
-            });
-          });
-          iconContent_1.style.transform = "rotate(90deg)";
-        } else {
-          innerContent_1.style.maxHeight = "0px";
-          iconContent_1.style.transform = "rotate(0deg)";
-          setTimeout(() => {
-            recalculateParentHeight(btn);
-          }, 500); 
-        }
-      });
-    });
-
-    const innerButton_2 = document.querySelectorAll(".button-2");
-    innerButton_2.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const innerContent_2 = btn.nextElementSibling;
-        const iconContent_2 = btn.querySelector("svg");
-        const btnOpen_2 = innerContent_2.style.maxHeight && innerContent_2.style.maxHeight !== "0px";
-
-        if (!btnOpen_2) {
-          innerContent_2.style.maxHeight = "0px";
-          requestAnimationFrame(() => {
-            innerContent_2.style.maxHeight = innerContent_2.scrollHeight + btn.offsetHeight + "px";
-            setTimeout(() => {
-              recalculateParentHeight(btn);
-            }, 20);
-          });
-          iconContent_2.style.transform = "rotate(90deg)";
-        } else {
-          innerContent_2.style.maxHeight = "0px";
-          iconContent_2.style.transform = "rotate(0deg)";
-          setTimeout(() => {
-            recalculateParentHeight(btn);
-          }, 500);
-        }
-      });
-    });
-  </script>
 </body>
 </html>
