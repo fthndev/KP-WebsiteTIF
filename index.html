@@ -37,7 +37,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center gap-3">
-          <img src="img\logo_tif.jpg" alt="Logo TI UTM" class="h-10 w-10 object-contain bg-[var(--main-blue)] rounded-full" />
+          <img src="img\logo_tif.jpg" alt="Logo TI UTM" class="h-10 w-10 bg-[var(--main-blue)]" />
           <span class="font-bold text-[var(--main-blue)] text-lg">Teknik Informatika UTM</span>
         </div>
         <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
@@ -88,8 +88,40 @@
                   </button>
                   <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)] space-y-2">
                     <div class="pt-2">
-                      <h5 class="font-semibold text-gray-600 mb-2">Kebijakan</h5>
-                      <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a>
+                      <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                        <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                        <h5 class="font-semibold text-gray-600">Kebijakan</h5>
+                      </button>
+                      <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                        <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a> 
+                      </div>
+                    </div>
+                    <div class="pt-2">
+                      <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                        <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                        <h5 class="font-semibold text-gray-600">Standar</h5>
+                      </button>
+                      <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                        <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a> 
+                      </div>
+                    </div>
+                    <div class="pt-2">
+                      <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                        <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                        <h5 class="font-semibold text-gray-600">IKU</h5>
+                      </button>
+                      <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                        <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a> 
+                      </div>
+                    </div>
+                    <div class="pt-2">
+                      <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+                        <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                        <h5 class="font-semibold text-gray-600">IKT</h5>
+                      </button>
+                      <div class="nested-accordion-content pl-6 border-l-2 border-[var(--light-blue)]">
+                        <a href="#" class="document-link flex items-center gap-3 p-2 rounded-md hover:bg-[var(--light-blue)] hover:text-[var(--main-blue)] transition-colors">📄 Pedoman Peraturan Rektor No. 24 Thn 2023</a> 
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -392,6 +424,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function smoothOpen(element) {
+    element.style.maxHeight = element.scrollHeight + "px";
+  }
+
+  function smoothClose(element) {
+    const height = element.scrollHeight;
+    element.style.maxHeight = height + "px";
+    requestAnimationFrame(() => {
+      element.style.maxHeight = "0px";
+    });
+  }
+
   document.querySelectorAll('.nested-accordion-button').forEach(button => {
     button.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -401,10 +445,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpened = content.style.maxHeight && content.style.maxHeight !== '0px';
 
       if (!isOpened) {
-        content.style.maxHeight = content.scrollHeight + 'px';
+        smoothOpen(content);
         if (icon) icon.style.transform = 'rotate(90deg)';
       } else {
-        content.style.maxHeight = '0px';
+        smoothClose(content);
         if (icon) icon.style.transform = 'rotate(0deg)';
       }
       
@@ -414,17 +458,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.accordion-button').forEach(mainButton => {
     mainButton.addEventListener('click', () => {
-      // BAGIAN KODE YANG MENUTUP OTOMATIS BAB LAIN TELAH DIHAPUS
       const content = mainButton.nextElementSibling;
       const icon = mainButton.querySelector('.accordion-icon');
       const isOpened = content.style.maxHeight && content.style.maxHeight !== '0px';
 
       if (!isOpened) {
-        content.style.maxHeight = content.scrollHeight + 'px';
+        smoothOpen(content);
         icon.style.transform = 'rotate(180deg)';
+        mainButton.classList.add("bg-[var(--light-blue)]");
       } else {
-        content.style.maxHeight = '0px';
+        smoothClose(content);
         icon.style.transform = 'rotate(0deg)';
+        mainButton.classList.remove("bg-[var(--light-blue)]");
       }
     });
   });
