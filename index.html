@@ -26,6 +26,10 @@
     .document-link {
       font-size: 0.9rem;
     }
+    .rotate-90 {
+        transform: rotate(90deg);
+        transition: transform 0.3s ease;
+    }
     body {
       scroll-behavior: smooth;
     }
@@ -75,7 +79,7 @@
         <div class="accordion-content">
           <div class="px-5 pb-5 pt-2 border-t border-gray-200 text-gray-700 space-y-2">
             <div>
-              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button nested-accordion-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C1</h4>
               </button>
@@ -304,7 +308,7 @@
             </div>
             
             <div>
-              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C2</h4>
               </button>
@@ -499,7 +503,7 @@
             </div>
 
             <div>
-              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C3</h4>
               </button>
@@ -643,7 +647,7 @@
             </div>
 
             <div>
-              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C4</h4>
               </button>
@@ -1093,7 +1097,7 @@
             </div>
 
             <div>
-              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C5</h4>
               </button>
@@ -1368,7 +1372,7 @@
             </div>
 
             <div>
-              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C6</h4>
               </button>
@@ -1995,7 +1999,7 @@
             </div>
 
             <div>
-              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C7</h4>
               </button>
@@ -2270,7 +2274,7 @@
             </div>
 
             <div>
-              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C8</h4>
               </button>
@@ -2501,7 +2505,7 @@
             </div>
             
             <div>
-              <button class="nested-accordion-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C9</h4>
               </button>
@@ -18956,64 +18960,129 @@ terhadap Pengelolaan Penelitian</a>
           }
         }
 
-  function smoothOpen(element) {
-    element.style.maxHeight = element.scrollHeight + "px";
-  }
+        function smoothOpen(element) {
+            element.style.maxHeight = element.scrollHeight + "px";
+        }
 
-  function smoothClose(element) {
-    const height = element.scrollHeight;
-    element.style.maxHeight = height + "px";
-    requestAnimationFrame(() => {
-      element.style.maxHeight = "0px";
+        function smoothClose(element) {
+            const height = element.scrollHeight;
+            element.style.maxHeight = height + "px";
+            requestAnimationFrame(() => {
+            element.style.maxHeight = "0px";
+            });
+        }
+
+    document.querySelectorAll('.nested-accordion-button').forEach(button => {
+        button.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.nested-accordion-icon');
+        const isOpened = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+        if (!isOpened) {
+            smoothOpen(content);
+            if (icon) icon.style.transform = 'rotate(90deg)';
+        } else {
+            smoothClose(content);
+            if (icon) icon.style.transform = 'rotate(0deg)';
+        }
+        
+        updateParentHeight(content);
+        });
     });
-  }
 
-  document.querySelectorAll('.nested-accordion-button').forEach(button => {
-    button.addEventListener('click', (e) => {
-      e.stopPropagation();
+    document.querySelectorAll('.accordion-button').forEach(mainButton => {
+        mainButton.addEventListener('click', () => {
+        const content = mainButton.nextElementSibling;
+        const icon = mainButton.querySelector('.accordion-icon');
+        const isOpened = content.style.maxHeight && content.style.maxHeight !== '0px';
 
-      const content = button.nextElementSibling;
-      const icon = button.querySelector('.nested-accordion-icon');
-      const isOpened = content.style.maxHeight && content.style.maxHeight !== '0px';
-
-      if (!isOpened) {
-        smoothOpen(content);
-        if (icon) icon.style.transform = 'rotate(90deg)';
-      } else {
-        smoothClose(content);
-        if (icon) icon.style.transform = 'rotate(0deg)';
-      }
-      
-      updateParentHeight(content);
+        if (!isOpened) {
+            smoothOpen(content);
+            icon.style.transform = 'rotate(180deg)';
+            mainButton.classList.add("bg-[var(--light-blue)]");
+        } else {
+            smoothClose(content);
+            icon.style.transform = 'rotate(0deg)';
+            mainButton.classList.remove("bg-[var(--light-blue)]");
+        }
+        });
     });
-  });
+    
+    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        });
+    }
 
-  document.querySelectorAll('.accordion-button').forEach(mainButton => {
-    mainButton.addEventListener('click', () => {
-      const content = mainButton.nextElementSibling;
-      const icon = mainButton.querySelector('.accordion-icon');
-      const isOpened = content.style.maxHeight && content.style.maxHeight !== '0px';
+    // logika unutk membuka all konten
+    document.querySelectorAll(".parent-button").forEach(button => {
+        button.addEventListener("click", (e) => {
+            e.stopPropagation();
 
-      if (!isOpened) {
-        smoothOpen(content);
-        icon.style.transform = 'rotate(180deg)';
-        mainButton.classList.add("bg-[var(--light-blue)]");
-      } else {
-        smoothClose(content);
-        icon.style.transform = 'rotate(0deg)';
-        mainButton.classList.remove("bg-[var(--light-blue)]");
-      }
-    });
-  });
-  
-  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
-  if (mobileMenuToggle && mobileMenu) {
-    mobileMenuToggle.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
-  }
-});
+            const content = button.nextElementSibling;
+            if (!content) return;
+
+            const nestedContents = content.querySelectorAll('.nested-accordion-content');
+            nestedContents.forEach(nested => {
+            nested.style.maxHeight = nested.scrollHeight + 'px';
+            const icon = nested.previousElementSibling?.querySelector('.nested-accordion-icon');
+            if (icon) icon.style.transform = 'rotate(90deg)';
+            });
+
+            function updateParentHeight(element) {
+            let parent = element.parentElement;
+            while (parent) {
+                if (
+                parent.classList.contains("nested-accordion-content") ||
+                parent.classList.contains("accordion-content")
+                ) {
+                parent.style.maxHeight = parent.scrollHeight + "px";
+                }
+                parent = parent.parentElement;
+            }
+            }
+
+            function getTotalHeight(element) {
+            element.style.maxHeight = element.scrollHeight + 'px';
+            const items = element.querySelectorAll(':scope > .nested-accordion-item');
+            let totalHeight = element.scrollHeight;
+
+            items.forEach(item => {
+                const button = item.querySelector(':scope > .nested-accordion-button');
+                const content = item.querySelector(':scope > .nested-accordion-content');
+                if (button && content) {
+                const icon = button.querySelector('.nested-accordion-icon');
+                if (icon) icon.classList.add('rotate-90');
+                const childHeight = getTotalHeight(content);
+                // Rekursif hitung tinggi anak
+                content.style.maxHeight = childHeight + 'px';
+                updateParentHeight(content); 
+                totalHeight += childHeight;
+                }
+            });
+
+            element.style.maxHeight = totalHeight + 'px';
+            return totalHeight;
+            }
+
+            const totalHeight = getTotalHeight(content);
+            content.style.maxHeight = totalHeight + "px";
+
+            updateParentHeight(content); 
+            });
+        });
+
+
+        const icon_parent = document.querySelector('.parent-button .nested-accordion-icon');
+        icon_parent.addEventListener('click', (e) =>{
+            e.stopPropagation;
+            icon_parent.classList.toggle('rotate-90');
+        })
+    });               
 </script>
 
 </body>
