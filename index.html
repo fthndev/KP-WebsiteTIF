@@ -308,7 +308,7 @@
             </div>
             
             <div>
-              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button nested-accordion-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C2</h4>
               </button>
@@ -503,7 +503,7 @@
             </div>
 
             <div>
-              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button nested-accordion-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C3</h4>
               </button>
@@ -647,7 +647,7 @@
             </div>
 
             <div>
-              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button nested-accordion-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C4</h4>
               </button>
@@ -1097,7 +1097,7 @@
             </div>
 
             <div>
-              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button nested-accordion-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C5</h4>
               </button>
@@ -1372,7 +1372,7 @@
             </div>
 
             <div>
-              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button nested-accordion-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C6</h4>
               </button>
@@ -1999,7 +1999,7 @@
             </div>
 
             <div>
-              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button nested-accordion-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C7</h4>
               </button>
@@ -2274,7 +2274,7 @@
             </div>
 
             <div>
-              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button nested-accordion-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C8</h4>
               </button>
@@ -2505,7 +2505,7 @@
             </div>
             
             <div>
-              <button class="parent-button w-full flex items-center text-left gap-2 py-1">
+              <button class="parent-button nested-accordion-button w-full flex items-center text-left gap-2 py-1">
                 <svg class="nested-accordion-icon w-4 h-4 text-blue-700 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 <h4 class="font-semibold text-gray-800">C9</h4>
               </button>
@@ -19026,13 +19026,6 @@ terhadap Pengelolaan Penelitian</a>
             const content = button.nextElementSibling;
             if (!content) return;
 
-            const nestedContents = content.querySelectorAll('.nested-accordion-content');
-            nestedContents.forEach(nested => {
-            nested.style.maxHeight = nested.scrollHeight + 'px';
-            const icon = nested.previousElementSibling?.querySelector('.nested-accordion-icon');
-            if (icon) icon.style.transform = 'rotate(90deg)';
-            });
-
             function updateParentHeight(element) {
             let parent = element.parentElement;
             while (parent) {
@@ -19047,35 +19040,31 @@ terhadap Pengelolaan Penelitian</a>
             }
 
             function getTotalHeight(element) {
-            element.style.maxHeight = element.scrollHeight + 'px';
-            const items = element.querySelectorAll(':scope > .nested-accordion-item');
-            let totalHeight = element.scrollHeight;
+            let totalHeight = 0;
+            const items = element.querySelectorAll(':scope > .pt-2');
 
             items.forEach(item => {
                 const button = item.querySelector(':scope > .nested-accordion-button');
                 const content = item.querySelector(':scope > .nested-accordion-content');
                 if (button && content) {
                 const icon = button.querySelector('.nested-accordion-icon');
-                if (icon) icon.classList.add('rotate-90');
+                if (icon) icon.style.transform = 'rotate(90deg)';
                 const childHeight = getTotalHeight(content);
-                // Rekursif hitung tinggi anak
                 content.style.maxHeight = childHeight + 'px';
                 updateParentHeight(content); 
-                totalHeight += childHeight;
+                totalHeight += content.scrollHeight;
                 }
             });
 
-            element.style.maxHeight = totalHeight + 'px';
-            return totalHeight;
+            element.style.maxHeight = element.scrollHeight + totalHeight + 'px';
+            return element.scrollHeight + totalHeight;
             }
 
             const totalHeight = getTotalHeight(content);
             content.style.maxHeight = totalHeight + "px";
-
-            updateParentHeight(content); 
-            });
+            updateParentHeight(content);
         });
-
+        });
 
         const icon_parent = document.querySelector('.parent-button .nested-accordion-icon');
         icon_parent.addEventListener('click', (e) =>{
